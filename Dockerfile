@@ -14,9 +14,12 @@ RUN useradd github \
 	&& bash /app/bin/installdependencies.sh \
 	&& chown -R github:github /app
 
+RUN curl -O -L https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce-cli_19.03.9~3-0~ubuntu-xenial_amd64.deb \
+    && dpkg -i ./docker-ce-cli_19.03.9~3-0~ubuntu-xenial_amd64.deb
+
 # Prepare entrypoint
 COPY entrypoint.sh /app/entrypoint.sh
-RUN chown github:github /app/entrypoint.sh \
-	&& chmod +x /app/entrypoint.sh
-USER github
+# RUN chown github:github /app/entrypoint.sh \
+#	&& chmod +x /app/entrypoint.sh
+# USER github
 ENTRYPOINT ["/app/entrypoint.sh"]
