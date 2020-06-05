@@ -9,7 +9,7 @@ RUN useradd github \
 	&& usermod -aG sudo github \
 	&& mkdir /app \
 	&& cd /app \
-	&& curl -O https://githubassets.azureedge.net/runners/2.160.0/actions-runner-linux-x64-2.160.0.tar.gz \
+	&& curl -O https://githubassets.azureedge.net/runners/2.263.0/actions-runner-linux-x64-2.263.0.tar.gz \
 	&& tar xzf ./actions-runner-linux-x64-*.tar.gz \
 	&& bash /app/bin/installdependencies.sh \
 	&& chown -R github:github /app
